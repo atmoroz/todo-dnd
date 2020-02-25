@@ -1,0 +1,18 @@
+.taskList {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  text-transform: capitalize;
+}
+.taskContent {
+  width: 85%;
+  border-bottom: 1px solid lightgray;
+}
+.removeTask {
+  color: red;
+  cursor: pointer;
+}
+.columnTitle {
+  display: flex;
+  justify-content: space-between;
+}

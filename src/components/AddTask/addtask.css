@@ -1,0 +1,19 @@
+.addTaskForm {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.taskFormInput {
+  max-width: 85%;
+  height: auto !important;
+  line-height: 1.5;
+  font-size: 14px;
+}
+.taskFormButton {
+  cursor: pointer;
+  background-color: inherit;
+  border: 0;
+  padding: 0;
+  color: green;
+}
