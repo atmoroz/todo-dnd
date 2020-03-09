@@ -1,44 +1,19 @@
 import React from "react";
 
-import { observer, inject } from "mobx-react";
+import ChangeInputHoc from "../HocComponents/ChangeInputHoc";
 
-@inject("store")
-@observer
 class AddTask extends React.Component {
-  state = {
-    content: ""
-  };
-
-  handleChange = e => {
-    const { value } = e.target;
-    this.setState({
-      content: value
-    });
-  };
-
-  addTask = e => {
-    e.preventDefault();
-    const { content } = this.state;
-    const {
-      TaskStore: { addTask }
-    } = this.props.store;
-
-    addTask(content);
-
-    this.setState({
-      content: ""
-    });
-  };
-
   render() {
+    const { addTask, content, handleChange } = this.props;
+
     return (
       <>
-        <form className="addTaskForm" onSubmit={this.addTask}>
+        <form className="addTaskForm" onSubmit={addTask}>
           <input
             className="taskFormInput"
             type="text"
-            value={this.state.content}
-            onChange={this.handleChange}
+            value={content}
+            onChange={handleChange}
             placeholder="Enter you task"
             required
           />
@@ -51,4 +26,4 @@ class AddTask extends React.Component {
   }
 }
 
-export default AddTask;
+export default ChangeInputHoc(AddTask);

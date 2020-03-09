@@ -21,7 +21,6 @@ class Column extends React.Component {
     const {
       ColumnsStore: { columns }
     } = this.props.store;
-    console.log(columns.length);
     if (columns.length > 0)
       localStorage.setItem("columns", JSON.stringify(columns));
 

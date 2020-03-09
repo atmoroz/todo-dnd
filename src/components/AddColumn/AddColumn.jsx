@@ -1,49 +1,16 @@
 import React from "react";
-import { observer, inject } from "mobx-react";
 
-var uniqid = require("uniqid");
-
-@inject("store")
-@observer
+import ChangeInputHoc from "../HocComponents/ChangeInputHoc";
 class AddColumn extends React.Component {
-  state = {
-    title: ""
-  };
-
-  handleChange = event => {
-    this.setState({
-      title: event.target.value
-    });
-  };
-
-  addColumn = (e, id) => {
-    e.preventDefault();
-
-    const { title } = this.state;
-    let idColumn = uniqid();
-    const {
-      ColumnsStore: { addColumn },
-      TaskStore: { createTaskList }
-    } = this.props.store;
-
-    addColumn(title, idColumn);
-
-    createTaskList(idColumn);
-
-    this.setState({
-      title: ""
-    });
-  };
-
   render() {
     return (
       <div className="addColumn">
-        <form onSubmit={this.addColumn}>
+        <form onSubmit={this.props.addColumn}>
           <div className="addColumnInputWrapp">
             <input
               type="text"
-              value={this.state.title}
-              onChange={this.handleChange}
+              value={this.props.title}
+              onChange={this.props.handleChange}
               required
             />
           </div>
@@ -58,4 +25,4 @@ class AddColumn extends React.Component {
     );
   }
 }
-export default AddColumn;
+export default ChangeInputHoc(AddColumn);

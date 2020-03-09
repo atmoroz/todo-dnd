@@ -8,8 +8,6 @@ import AddColumn from "./components/AddColumn/AddColumn";
 @observer
 class App extends React.Component {
   onDragEnd = result => {
-    //TODO
-    console.log(result);
     const {
       TaskStore: { changeLineTask, changeColumnTask }
     } = this.props.store;
@@ -41,6 +39,8 @@ class App extends React.Component {
   };
 
   render() {
+    const { TaskStore } = this.props.store;
+    console.log(TaskStore);
     return (
       <DragDropContext onDragEnd={this.onDragEnd}>
         <div className="App">
